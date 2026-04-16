@@ -1,8 +1,9 @@
 :root {
-    --bg: #050505;
-    --accent: #0070f3; /* Синий неон */
-    --glass: rgba(255, 255, 255, 0.03);
-    --border: rgba(255, 255, 255, 0.08);
+    --bg: #030205;
+    --accent: #a020f0; /* Насыщенный фиолетовый */
+    --accent-glow: rgba(160, 32, 240, 0.4);
+    --glass: rgba(255, 255, 255, 0.02);
+    --border: rgba(160, 32, 240, 0.15);
 }
 
 body {
@@ -11,91 +12,100 @@ body {
     color: #fff;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
+    background-image: radial-gradient(circle at 50% -20%, #25103f 0%, transparent 50%);
 }
 
-/* Фоновое свечение */
-.bg-glow {
-    position: fixed;
-    top: -10%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(0, 112, 243, 0.15) 0%, transparent 70%);
-    z-index: -1;
-}
-
+/* Шапка как в Pulse Visuals */
 nav {
-    padding: 20px 5%;
     display: flex;
     justify-content: space-between;
-    backdrop-filter: blur(10px);
+    align-items: center;
+    padding: 20px 8%;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
     border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.logo { font-weight: 700; letter-spacing: 2px; font-size: 1.2rem; }
-.accent { color: var(--accent); text-shadow: 0 0 10px var(--accent); }
+.logo { 
+    font-weight: 900; 
+    font-size: 1.4rem; 
+    letter-spacing: 3px; 
+    text-transform: uppercase;
+}
 
-main {
-    height: 80vh;
+.user-profile {
     display: flex;
     align-items: center;
+    gap: 12px;
+    background: var(--glass);
+    padding: 5px 15px;
+    border-radius: 30px;
+    border: 1px solid var(--border);
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent);
+}
+
+/* Контейнер для анимации */
+.main-content {
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    padding: 0 20px;
 }
 
 .glass-card {
     background: var(--glass);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(25px);
     border: 1px solid var(--border);
-    padding: 50px;
-    border-radius: 24px;
-    max-width: 500px;
+    padding: 60px;
+    border-radius: 32px;
     text-align: center;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    box-shadow: 0 25px 80px rgba(0,0,0,0.8);
+    border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-.badge {
-    background: rgba(0, 112, 243, 0.1);
-    color: var(--accent);
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    border: 1px solid var(--accent);
+/* Анимация появления снизу */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-h1 { font-size: 2.5rem; margin: 20px 0; }
+.animated-msg {
+    animation: slideUp 0.8s ease forwards;
+    display: block;
+    margin-top: 20px;
+}
 
-.features {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 30px;
-    font-size: 0.9rem;
-    color: #888;
+.wellonwork { font-size: 1.1rem; color: #d8b4fe; font-weight: 500; }
+.purchase-msg { font-size: 0.9rem; color: #8b5cf6; margin-top: 5px; opacity: 0.8; }
+
+.accent { 
+    color: var(--accent); 
+    text-shadow: 0 0 20px var(--accent); 
 }
 
 .btn-main {
-    background: var(--accent);
+    background: linear-gradient(135deg, #a020f0, #6d28d9);
     color: white;
-    padding: 15px 35px;
-    border-radius: 12px;
+    padding: 16px 40px;
+    border-radius: 14px;
     text-decoration: none;
-    font-weight: 700;
-    transition: 0.3s;
-    display: inline-block;
-    box-shadow: 0 0 20px rgba(0, 112, 243, 0.3);
+    font-weight: bold;
+    box-shadow: 0 10px 25px var(--accent-glow);
+    transition: 0.4s;
 }
 
-.btn-main:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(0, 112, 243, 0.5); }
-
-.btn-outline {
-    margin-left: 15px;
-    color: #fff;
-    text-decoration: none;
-    border: 1px solid var(--border);
-    padding: 15px 35px;
-    border-radius: 12px;
+.btn-main:hover { 
+    transform: scale(1.05); 
+    box-shadow: 0 15px 35px var(--accent); 
 }
-
-footer { text-align: center; color: #444; font-size: 0.8rem; padding-bottom: 20px; }
