@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #080808; /* Глубокий черный */
+    font-family: 'Arial', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px); /* Тот самый блюр */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.accent { color: #007bff; text-shadow: 0 0 15px #007bff; }
+
+.btn-primary {
+    background: #007bff;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
+    margin: 10px;
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
+}
+
+.btn-secondary {
+    border: 1px solid #444;
+    color: #ccc;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
+}
